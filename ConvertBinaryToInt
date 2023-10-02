@@ -1,0 +1,32 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConvertBinaryToDecimal
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            bool[] array = { true, true, true, true, true, false, false, true, false, true, false, true, false, true, true, true, true, true, true, false, false, false, true, false, false, true, false, false, true, true, true, false };
+            int convertito = Convert_Binario_To_Intero(array);
+            Console.WriteLine($"bit convertiti in valore decimale: {convertito}");
+
+        }
+        static int Convert_Binario_To_Intero(bool[] b)
+        {
+            int intConvertito = 0;
+            for(int i = 0; i < 32; i++) 
+            {
+                if (b[i] == true) //false = 0, la moltiplicazione si annullerebbe
+                {
+                    intConvertito = intConvertito + (int)Math.Pow(2, i); //potenza di 2 elevato alla i 
+                }
+            }
+            return intConvertito;
+        }
+
+    }
+}
